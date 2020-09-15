@@ -3,14 +3,12 @@ on:
   workflow_dispatch:
 defaults:
   run:
-    shell: bash
+    shell: /bin/zsh
 
 jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: change shell to zsh
-      run: sudo chsh -s /bin/zsh
     - uses: fastai/workflows/ssh@master
       with:
         ssh_key: ${{ secrets.SSH_KEY }}
